@@ -12,29 +12,31 @@ const router = createRouter({
       path: '/register',
       name: 'AuthRegister',
       component: AuthRegister,
-      // meta: { requiresGuest: true } // Indica que esta ruta debería ser accesible solo para usuarios no autenticados
+      meta: { requiresGuest: true }
     },
     {
       path: '/login',
       name: 'AuthLogin',
       component: AuthLogin,
-      // meta: { requiresGuest: true } // Indica que esta ruta debería ser accesible solo para usuarios no autenticados
+      meta: { requiresGuest: true }
     },
     {
       path: '/users',
       name: 'users-index',
       component: UserCIndex,
-      // meta: { requiresAuth: true } // Indica que esta ruta requiere autenticación
+      meta: { requiresAuth: true }
     },
     {
       path: '/users/create',
       name: 'users-create',
-      component: UserEdit
+      component: UserEdit,
+      meta: { requiresAuth: true }
     },
     {
       path: '/users/:id/edit',
       name: 'users-edit',
-      component: UserCreate
+      component: UserCreate,
+      meta: { requiresAuth: true }
     },
     {
       path: '/:pathMatch(.*)*', // Ruta comodín para capturar todas las rutas no existentes
@@ -56,7 +58,7 @@ router.beforeEach((to, from, next) => {
   // If the route is for guests (login or register) and the user is already authenticated, redirect to chat
   else if (requiresGuest && token) {
     next('/users');
-  } 
+  }
   // If the route does not require authentication, proceed as normal
   else {
     next();
