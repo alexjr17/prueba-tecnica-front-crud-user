@@ -1,29 +1,41 @@
-# front-crud-user
+## Administración de Usuarios
+Esta es una aplicación CRUD (Crear, Leer, Actualizar, Eliminar) para gestionar registros de usuarios, desarrollada con Laravel y Tailwind CSS.
 
-This template should help get you started developing with Vue 3 in Vite.
+## Características
+- Registro y autenticación de usuarios
+- CRUD de registros de usuarios
+- Campos de usuario: Nombre, Apellido, Correo, Número de teléfono
 
-## Recommended IDE Setup
+## Requisitos
+- Node.js
+- Vue.js
+- Tailwind CSS
+- Axios
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## Customize configuration
+## Clona el repositorio
+```
+git clone https://github.com/alexjr17/prueba-tecnica-front-crud-user.git
+```
 
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+## Instala las dependencias de node:
+```
 npm install
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
+## Inicia el servidor de desarrollo:
+```
 npm run dev
 ```
+## Uso
+- Accede a la aplicación en [localHost](http://localhost:5173).
+- Inicia sesión con las credenciales de prueba:
+- Correo: test@example.com
+- Contraseña: 12345678
 
-### Compile and Minify for Production
 
-```sh
-npm run build
-```
+## Despliegue
+- El proyecto front.end está desplegado en [Ver deploy front-end](https://prueba-tecnica-front-crud-user-production.up.railway.app).
+- El proyecto back-end está desplegado en [Ver deploy back-end](https://prueba-tecnica-crud-user-api-production.up.railway.app).
+- Correo: test@example.com
+- Contraseña: 12345678
