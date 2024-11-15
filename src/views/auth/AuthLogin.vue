@@ -1,27 +1,63 @@
 <template>
-  <div class="container-auth">
-    <h2>Inicia sesión</h2>
-    <form @submit.prevent="login">
-      <div data-mdb-input-init class="form-outline mb-4">
-        <label class="form-label" for="form1Example1">Correo</label>
-        <input type="text" id="email" class="form-control" v-model="email" required/>
+  <div class="w-[40%] max-w-[80%] mx-auto p-5 bg-white rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">Inicia sesión</h2>
+    
+    <form @submit.prevent="login" class="space-y-6">
+      <div class="space-y-2">
+        <label 
+          for="email" 
+          class="block text-sm font-medium text-gray-700"
+        >
+          Correo
+        </label>
+        <input 
+          type="text" 
+          id="email" 
+          v-model="email" 
+          required
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        />
+      </div>
+      
+      <div class="space-y-2">
+        <label 
+          for="password" 
+          class="block text-sm font-medium text-gray-700"
+        >
+          Password
+        </label>
+        <input 
+          type="password" 
+          id="password" 
+          v-model="password" 
+          required
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        />
       </div>
 
-      <!-- Password input -->
-      <div data-mdb-input-init class="form-outline mb-4">
-        <label class="form-label" for="form1Example2">Password</label>
-        <input type="password" class="form-control" id="password" v-model="password" required/>
-      </div>
-
-      <!-- Alert for errors -->
-      <div v-if="errorMessage" class="alert alert-danger" role="alert">
+      <div 
+        v-if="errorMessage" 
+        class="p-4 text-red-700 bg-red-100 rounded-md"
+        role="alert"
+      >
         {{ errorMessage }}
       </div>
+      
+      <button 
+        type="submit" 
+        class="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors duration-200"
+      >
+        Inicia sesión
+      </button>
 
-      <!-- Submit button -->
-      <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block">Inicia sesión</button>
-      <div class="link">
-        <span>¿No tienes una cuenta?</span> <router-link to="/register">Regístrate</router-link>
+      <div class="text-center text-gray-600">
+        <span>¿No tienes una cuenta?</span>
+        <router-link 
+          to="/register" 
+          class="ml-1 text-blue-600 hover:text-blue-800 font-medium"
+        >
+          Regístrate
+        </router-link>
       </div>
     </form>
   </div>
@@ -49,7 +85,7 @@ const login = async () => {
     
     if(token){
       setTimeout(() => {
-        router.push({name: 'users'});
+        router.push({name: 'users-index'});
       }, 1000);
     }
   } catch (error) {
@@ -62,18 +98,3 @@ const login = async () => {
   }
 };
 </script>
-
-<style scoped>
-.container-auth {
-  width: 40% !important;
-  max-width: 80% !important;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: auto;
-}
-.alert {
-  margin-top: 10px;
-}
-</style>

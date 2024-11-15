@@ -1,54 +1,114 @@
 <template>
-  <div class="container-auth">
-    <h2>Registro</h2>
+  <div class="w-[40%] max-w-[80%] mx-auto p-5 bg-white rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">Registro</h2>
 
-    <form @submit.prevent="handleSubmit">
-      <div data-mdb-input-init class="form-outline mb-1">
-        <label class="form-label" for="form3Example1">Nombres</label>
-        <input type="text" class="form-control" id="name" v-model="name" required />
-        <small class="text-danger" v-if="errors.name">{{ errors.name }}</small>
+    <form @submit.prevent="handleSubmit" class="space-y-4">
+      <!-- Nombre -->
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-700">Nombres</label>
+        <input 
+          type="text" 
+          id="name" 
+          v-model="name" 
+          required
+          class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        />
+        <small v-if="errors.name" class="text-red-600 text-sm mt-1 block">{{ errors.name }}</small>
       </div>
 
-      <div data-mdb-input-init class="form-outline mb-1">
-        <label class="form-label" for="form3Example2">Apellidos</label>
-        <input type="text" id="lastname" class="form-control" v-model="lastname" required />
-        <small class="text-danger" v-if="errors.lastname">{{ errors.lastname }}</small>
+      <!-- Apellidos -->
+      <div>
+        <label for="lastname" class="block text-sm font-medium text-gray-700">Apellidos</label>
+        <input 
+          type="text" 
+          id="lastname" 
+          v-model="lastname" 
+          required
+          class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        />
+        <small v-if="errors.lastname" class="text-red-600 text-sm mt-1 block">{{ errors.lastname }}</small>
       </div>
 
-      <div data-mdb-input-init class="form-outline mb-1">
-        <label class="form-label" for="form3Example3">Correo electrónico</label>
-        <input type="email" class="form-control" id="email" v-model="email" required />
-        <small class="text-danger" v-if="errors.email">{{ errors.email }}</small>
-      </div>
-      <div data-mdb-input-init class="form-outline mb-1">
-        <label class="form-label" for="form3Example3">Numero telefono</label>
-        <input type="phone" class="form-control" id="phone" v-model="phone" required />
-        <small class="text-danger" v-if="errors.phone">{{ errors.phone }}</small>
-      </div>
-
-      <div data-mdb-input-init class="form-outline mb-1">
-        <label class="form-label" for="form3Example4">Contraseña</label>
-        <input type="password" class="form-control" id="password" v-model="password" required
-          autocomplete="new-password" />
-        <small class="text-danger" v-if="errors.password">{{ errors.password }}</small>
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Correo electrónico</label>
+        <input 
+          type="email" 
+          id="email" 
+          v-model="email" 
+          required
+          class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        />
+        <small v-if="errors.email" class="text-red-600 text-sm mt-1 block">{{ errors.email }}</small>
       </div>
 
-      <div data-mdb-input-init class="form-outline mb-1">
-        <label class="form-label" for="password_confirmation">Confirmar Contraseña</label>
-        <input type="password" class="form-control" id="password_confirmation" v-model="passwordConfirmation" required
-          autocomplete="new-password" />
-        <small class="text-danger" v-if="errors.password_confirmation">{{ errors.password_confirmation }}</small>
+      <!-- Teléfono -->
+      <div>
+        <label for="phone" class="block text-sm font-medium text-gray-700">Número teléfono</label>
+        <input 
+          type="tel" 
+          id="phone" 
+          v-model="phone" 
+          required
+          class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        />
+        <small v-if="errors.phone" class="text-red-600 text-sm mt-1 block">{{ errors.phone }}</small>
       </div>
 
-      <!-- Alert for errors -->
-      <!-- <div v-if="errorMessage" class="alert alert-danger" role="alert"> -->
-      {{ errorMessage }}
-      <!-- </div> -->
+      <!-- Contraseña -->
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
+        <input 
+          type="password" 
+          id="password" 
+          v-model="password" 
+          required
+          autocomplete="new-password"
+          class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        />
+        <small v-if="errors.password" class="text-red-600 text-sm mt-1 block">{{ errors.password }}</small>
+      </div>
 
-      <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4">Registrarse</button>
+      <!-- Confirmar Contraseña -->
+      <div>
+        <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirmar Contraseña</label>
+        <input 
+          type="password" 
+          id="password_confirmation" 
+          v-model="passwordConfirmation" 
+          required
+          autocomplete="new-password"
+          class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        />
+        <small v-if="errors.password_confirmation" class="text-red-600 text-sm mt-1 block">{{ errors.password_confirmation }}</small>
+      </div>
 
-      <div class="link">
-        <span>Ya tienes una cuenta?</span> <router-link to="/login">Ingresa</router-link>
+      <!-- Mensaje de error general -->
+      <div 
+        v-if="errorMessage" 
+        class="p-4 text-red-700 bg-red-100 rounded-md"
+        role="alert"
+      >
+        {{ errorMessage }}
+      </div>
+
+      <!-- Botón de registro -->
+      <button 
+        type="submit" 
+        class="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors duration-200"
+      >
+        Registrarse
+      </button>
+
+      <!-- Link a login -->
+      <div class="text-center text-gray-600">
+        <span>¿Ya tienes una cuenta?</span>
+        <router-link 
+          to="/login" 
+          class="ml-1 text-blue-600 hover:text-blue-800 font-medium"
+        >
+          Ingresa
+        </router-link>
       </div>
     </form>
   </div>
@@ -69,7 +129,6 @@ const errorMessage = ref('');
 const router = useRouter();
 const errors = ref({});
 
-// Mapeo de keys del backend a keys del frontend
 const errorKeyMap = {
   'nombres': 'name',
   'apellidos': 'lastname',
@@ -79,14 +138,11 @@ const errorKeyMap = {
   'numero_telefono': 'phone'
 };
 
-// Función para reformatear errores del backend de laravel
 const reformatErrors = (backendErrors) => {
   const reformattedErrors = {};
 
   Object.keys(backendErrors).forEach(backendKey => {
-    // Obtiene la key correspondiente del frontend o usa la key del backend si no hay mapeo
     const frontendKey = errorKeyMap[backendKey] || backendKey;
-
     reformattedErrors[frontendKey] = Array.isArray(backendErrors[backendKey])
       ? backendErrors[backendKey][0]
       : backendErrors[backendKey];
@@ -98,28 +154,24 @@ const reformatErrors = (backendErrors) => {
 const validateForm = () => {
   const newErrors = {};
 
-  // Validación del nombre
   if (!name.value.trim()) {
     newErrors.name = 'El nombre es requerido';
   }
 
-  // Validación del apellido
   if (!lastname.value.trim()) {
     newErrors.lastname = 'El apellido es requerido';
   }
-  // Validación del apellido
+
   if (!phone.value.trim()) {
     newErrors.phone = 'El numero telefono es requerido';
   }
 
-  // Validación del email
   if (!email.value.trim()) {
     newErrors.email = 'El correo electrónico es requerido';
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
     newErrors.email = 'Por favor ingrese un correo electrónico válido';
   }
 
-  // Validación de la contraseña
   if (!password.value) {
     newErrors.password = 'La contraseña es requerida';
   } else {
@@ -131,7 +183,6 @@ const validateForm = () => {
     }
   }
 
-  // Validación de la confirmación de contraseña
   if (!passwordConfirmation.value) {
     newErrors.password_confirmation = 'La confirmación de contraseña es requerida';
   } else if (password.value !== passwordConfirmation.value) {
@@ -143,11 +194,9 @@ const validateForm = () => {
 };
 
 const handleSubmit = async () => {
-  // Limpiar mensajes de error
   errorMessage.value = '';
   errors.value = {};
 
-  // Validar el formulario antes de enviar
   if (!validateForm()) {
     return;
   }
@@ -168,13 +217,10 @@ const handleSubmit = async () => {
       localStorage.setItem('user', JSON.stringify(user));
       router.push('/chat');
     } else {
-      console.log(response.data);
-
       errorMessage.value = 'Error inesperado, inténtelo de nuevo más tarde.';
     }
   } catch (error) {
     if (error.response?.status === 422 && error.response.data.errors) {
-      console.error(error.response.data.errors);
       errors.value = reformatErrors(error.response.data.errors);
     } else if (error.response?.status === 400) {
       errorMessage.value = 'Error en los datos de registro. Por favor, verifique los campos.';
@@ -187,24 +233,3 @@ const handleSubmit = async () => {
   }
 };
 </script>
-
-<style scoped>
-.container-auth {
-  width: 40% !important;
-  max-width: 80% !important;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.alert {
-  margin-top: 10px;
-}
-
-.text-danger {
-  color: #dc3545;
-  font-size: 0.875em;
-  margin-top: 0.25rem;
-}
-</style>
