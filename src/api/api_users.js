@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const axiosIns = axios.create({
-  // baseURL: 'http://127.0.0.1:8000/api',
-  baseURL: 'prueba-tecnica-crud-user-api-production.up.railway.app/api',
+  // baseURL: $VUE_APP_APP_URL,
+  // baseURL: 'prueba-tecnica-crud-user-api-production.up.railway.app/api',
 });
 
 // Rutas que no requieren token
