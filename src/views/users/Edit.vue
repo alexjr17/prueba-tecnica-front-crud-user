@@ -24,7 +24,7 @@
 import { ref, onMounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import axios2 from '../../api/api_users';
-import UserFormBase from './form/form.Vue';
+import UserFormBase from './form/form.vue';
 
 const router = useRouter();
 const route = useRoute();

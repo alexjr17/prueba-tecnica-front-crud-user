@@ -70,7 +70,7 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import axios2 from '../../api/api_users';
-import UserFormBase from './form/form.Vue';
+import UserFormBase from './form/form.vue';
 
 const router = useRouter();
 const loading = ref(false);
