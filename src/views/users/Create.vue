@@ -63,7 +63,7 @@ const handleSubmit = async (formData) => {
     error.value = null;
 
     try {
-        const response = await axios2.post('api/users', {
+        const response = await axios2.post('/users', {
             nombres: formData.name,
             apellidos: formData.lastName,
             numero_telefono: formData.phone,

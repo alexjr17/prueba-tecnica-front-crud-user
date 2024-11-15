@@ -63,7 +63,7 @@ const handleSubmit = async (formData) => {
     error.value = null;
 
     try {
-        const response = await axios2.put(`api/users/${route.params.id}`, {
+        const response = await axios2.put(`/users/${route.params.id}`, {
             nombres: formData.name,
             apellidos: formData.lastName,
             numero_telefono: formData.phone,

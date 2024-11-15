@@ -202,7 +202,7 @@ const handleSubmit = async () => {
   }
 
   try {
-    const response = await axios2.post('api/auth/register', {
+    const response = await axios2.post('/auth/register', {
       nombres: name.value,
       apellidos: lastname.value,
       numero_telefono: phone.value,

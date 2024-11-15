@@ -210,7 +210,7 @@ const fetchUsers = async () => {
   error.value = null;
 
   try {
-    const response = await axios2.get('api/users', {
+    const response = await axios2.get('/users', {
       params: {
         ...filters.value,
         sort_by: filters.value.sortBy,
